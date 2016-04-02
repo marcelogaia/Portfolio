@@ -2,6 +2,18 @@
 My Python / Django Portfolio
 
 ### Instructions:
+Let's first install what we need (in case you didn't already)
+```
+pip install Django
+pip install MySQL-python
+```
+
+##### Install Django Summernote
+Django Summernote is the text editor being used to generate styled texts inside Django's Admin area. Install it running:
+```
+pip install django-summernote 
+```
+
 ##### Create your local_settings.py in the root folder, in which should contain something like this (or any extra settings that you need):
 
 ```python
