@@ -14,6 +14,11 @@ Django Summernote is the text editor being used to generate styled texts inside 
 pip install django-summernote 
 ```
 
+##### And Django Autocomplete Light
+```
+pip install django-autocomplete-light
+```
+
 ##### Create your local_settings.py in the root folder, in which should contain something like this (or any extra settings that you need):
 
 ```python

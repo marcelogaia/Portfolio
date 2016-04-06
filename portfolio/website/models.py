@@ -4,57 +4,107 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    name = models.CharField(max_length=30)
-    address = models.CharField(max_length=50)
-    city = models.CharField(max_length=60)
-    state_province = models.CharField(max_length=30)
-    country = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=12)
-    linkedin = models.URLField()
-    github = models.URLField()
-    website = models.URLField()
+    name            = models.CharField(max_length=30)
+    address         = models.CharField(max_length=50)
+    city            = models.CharField(max_length=60)
+    state_province  = models.CharField(max_length=30, verbose_name="State / Province")
+    country         = models.CharField(max_length=50)
+    email           = models.EmailField()
+    phone_number    = models.CharField(max_length=12, verbose_name="Phone no.")
+    linkedin        = models.URLField()
+    github          = models.URLField()
+    website         = models.URLField()
+    
+    def __str__(self):
+        return self.name + " (" + str (self.id) + ")"
+    
+class Language(models.Model):
+    name        = models.CharField(max_length=30)
+    code        = models.CharField(max_length=2)
+
+    def __str__(self):
+        return self.name
+    
+class Skill(models.Model):
+    name        = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 class Resume(models.Model):
-    title = models.CharField(max_length=30)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    summary = models.TextField()
-    languages = models.TextField()
-    skills = models.TextField()
+    title       = models.CharField(max_length=30)
+    user        = models.ForeignKey(User, on_delete=models.CASCADE)
+    summary     = models.TextField()
+    language    = models.ManyToManyField(Language)
+    skill       = models.ManyToManyField(Skill)
+    
+    def __str__(self):
+        return self.title
     
 class Experience(models.Model):
-    resume_id = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    title = models.CharField(max_length=30)
-    company_name = models.CharField(max_length=30)
+    resume          = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    title           = models.CharField(max_length=30)
+    company_name    = models.CharField(max_length=30)
     company_website = models.URLField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-    city = models.CharField(max_length=60)
-    state_province = models.CharField(max_length=30)
-    country = models.CharField(max_length=50)
-    description = models.TextField()
+    start_date      = models.DateField()
+    end_date        = models.DateField()
+    city            = models.CharField(max_length=60)
+    state_province  = models.CharField(max_length=30, verbose_name="State / Province")
+    country         = models.CharField(max_length=50)
+    description     = models.TextField()
+    
+    def __str__(self):
+        return self.title + "-" + self.company_name
     
 class Education(models.Model):
-    title = models.CharField(max_length=30)
+    resume      = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    title       = models.CharField(max_length=30)
     institution = models.CharField(max_length=30)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date  = models.DateField()
+    end_date    = models.DateField()
     description = models.TextField()
+    
+    def __str__(self):
+        return self.title + "-" + self.institution
 
 class Project(models.Model):
-    title = models.CharField(max_length=30)
-    experience_id = models.ForeignKey(Experience, on_delete=models.CASCADE)
-    description = models.TextField()
-    featured_img = models.CharField(max_length=30)
-    date = models.DateField()
+    title           = models.CharField(max_length=30)
+    experience      = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    description     = models.TextField()
+    featured_image  = models.CharField(max_length=30)
+    date            = models.DateField()
+    
+    def __str__(self):
+        return self.title
 
-class Management:
-    title = models.CharField(max_length=30)
-    text = models.TextField()
+class Management(models.Model):
+    title       = models.CharField(max_length=30)
+    text        = models.TextField()
     
-class Project_images:
-    project_id = models.ForeignKey(Project, on_delete=models.CASCADE)
-    url = models.CharField(max_length=30)
-    thumb_url = models.CharField(max_length=30)
-    comment = models.CharField(max_length=60)
+    def __str__(self):
+        return self.title
     
+class Project_image(models.Model):
+    project     = models.ForeignKey(Project, on_delete=models.CASCADE)
+    url         = models.CharField(max_length=30)
+    thumb_url   = models.CharField(max_length=30, verbose_name="Thumbnail URL")
+    comment     = models.CharField(max_length=60)
+    
+    def __str__(self):
+        return self.comment
+    
+class Reference(models.Model):
+    resume       = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    user         = models.ForeignKey(User, on_delete=models.CASCADE)
+    relationship = models.CharField(max_length=60,blank=True)
+'''    
+class Resume_language(models.Model):
+    resume      = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    language    = models.ForeignKey(Language, on_delete=models.CASCADE)
+    level       = models.IntegerField(null=False)
+    
+class Resume_skill(models.Model):
+    resume      = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    skill       = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    #level       = models.IntegerField(null=False)
+'''
