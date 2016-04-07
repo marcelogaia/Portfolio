@@ -19,12 +19,12 @@ urlpatterns = [
     ),
     url(
         r'^skills-autocomplete/$',
-        views.SkillAutocomplete.as_view(),
+        views.SkillAutocomplete.as_view(create_field='name'),
         name='skills-autocomplete',
     ),
     url(
         r'^languages-autocomplete/$',
-        views.LanguageAutocomplete.as_view(),
+        views.LanguageAutocomplete.as_view(create_field='name'),
         name='languages-autocomplete',
     ),
 ]

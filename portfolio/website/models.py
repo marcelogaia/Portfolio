@@ -97,14 +97,3 @@ class Reference(models.Model):
     resume       = models.ForeignKey(Resume, on_delete=models.CASCADE)
     user         = models.ForeignKey(User, on_delete=models.CASCADE)
     relationship = models.CharField(max_length=60,blank=True)
-'''    
-class Resume_language(models.Model):
-    resume      = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    language    = models.ForeignKey(Language, on_delete=models.CASCADE)
-    level       = models.IntegerField(null=False)
-    
-class Resume_skill(models.Model):
-    resume      = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    skill       = models.ForeignKey(Skill, on_delete=models.CASCADE)
-    #level       = models.IntegerField(null=False)
-'''

@@ -4,11 +4,6 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
-class ManagementAdmin(SummernoteModelAdmin):
-    list_display = ['title',]
-    search_fields = ['title']
-admin.site.register(Management,ManagementAdmin)
-
 class UserAdmin(admin.ModelAdmin):
     list_display = ['name',]
     search_fields = ['name']
@@ -25,6 +20,7 @@ class ResumeAdmin(SummernoteModelAdmin):
     #search_fields = ['title']
 admin.site.register(Resume,ResumeAdmin)
 
+'''
 class ReferenceAdmin(admin.ModelAdmin):
     list_display = ('get_resume','get_user')
 
@@ -57,3 +53,8 @@ class ProjectImageAdmin(admin.ModelAdmin):
     list_display = ['comment',]
     search_fields = ['comment']
 admin.site.register(Project_image,ProjectImageAdmin)
+class ManagementAdmin(SummernoteModelAdmin):
+    list_display = ['title',]
+    search_fields = ['title']
+admin.site.register(Management,ManagementAdmin)
+'''
