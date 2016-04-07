@@ -24,7 +24,7 @@ urlpatterns = [
     ),
     url(
         r'^languages-autocomplete/$',
-        views.LanguageAutocomplete.as_view(create_field='name'),
+        views.LanguageAutocomplete.as_view(),
         name='languages-autocomplete',
     ),
 ]

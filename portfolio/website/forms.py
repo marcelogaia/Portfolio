@@ -4,13 +4,13 @@ from models import Resume, Skill, Language
 
 
 class ResumeForm(forms.ModelForm):
-    skill = forms.ModelChoiceField(
+    skill = forms.ModelMultipleChoiceField(
 		required = False,
         queryset = Skill.objects.all(),
         widget	 = autocomplete.ModelSelect2Multiple(url='skills-autocomplete'),
     )
 	
-    language = forms.ModelChoiceField(
+    language = forms.ModelMultipleChoiceField(
 		required = False,
         queryset = Language.objects.all(),
         widget	 = autocomplete.ModelSelect2Multiple(url='languages-autocomplete'),
