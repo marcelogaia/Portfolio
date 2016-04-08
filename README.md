@@ -5,16 +5,12 @@ My Python / Django Portfolio
 Let's first install what we need
 
 ##### Installing the dependencies
-Run the following commands to install the dependencies:
+Run the following commands to install the dependencies: (replace \{username\} with your username)
 ```
-pip install Django
-pip install MySQL-python
-pip install django-summernote 
-pip install django-autocomplete-light
-pip install Pillow
+pip install -r $HOME/{username}/portfolio/requirements.txt
 ```
 
-##### Create your local_settings.py in the root folder, in which should contain something like this (or any extra settings that you need):
+##### Create your local_settings.py in your `portfolio` folder, in which should contain something like this (or any extra settings that you need):
 
 ```python
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,4 +45,15 @@ MEDIA_ROOT  = os.path.join(BASE_DIR, '/media')
 
 STATIC_URL  = '/static/'
 MEDIA_URL   = '/media/'
+```
+
+##### Then:
+Just run the following commands: (again, replace \{username\} with your username)
+```
+cd $HOME/{username}/portfolio/
+python manage.py collectstatic --noinput
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
 ```
