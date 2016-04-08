@@ -1,23 +1,111 @@
-*{margin:0;padding:0;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;font-size:12px;}
-body{text-align:center;}
+*{margin:0;padding:0;font-family:Helvetica,Arial,"Trebuchet MS",sans-serif;}
 
-#geral{height:100%;width:100%;overflow:auto;}
-#geral-html{width:600px;margin:0 auto;}
-#qrcode{position:absolute;bottom: 0px;right:0px;}
-#iframe{float:left;width:auto;height:450px;overflow:hidden;border: 1px #CCE solid;width: 250px;}
-#geral-flash{width: 100%;height: 100%;margin:0;display:none;}
-#header{margin:0;padding-top:50%;}
+html,body,#wrap,.header,.body{
+	height:100%;
+}
+
+.wrap{
+	position: relative; 
+	display: block;
+}
+
+.header, .body{position:absolute;}
+
+.header{
+	left:0;
+	top:0;
+	width:calc(30% - 30px);
+	background-color: #025F8A;
+	color: white;
+	text-align: right;
+	padding-right: 30px 
+}
+
+.body{
+	right:0;
+	top:0;
+	width:70%;
+	text-align: center;
+	color:#025F8A;
+}
+
+.body img{
+
+}
+
+.inside{
+	position: relative;	
+	top:48%; 
+}
+.header .inside {
+	top:calc(50% - 50px);
+}
+.body .inside {
+	top:calc(50% - 35px);
+}
 
 
-.header-logo{float:left;text-align:right;padding:5px 25px 0 0;height: 115px;}
-.header-logo .logo{display:block;}
-.header-logo .logo , strong{font-size:60px;}
-.header-logo .php{font-size:18px; font-weight:bold;color:#DD0000;}
+h1{font-size:3.5em; font-weight: normal;}
 
-.header-contato {float:left;padding:20px 0 0 25px;height: 100px;margin-left: 5px;}
-.header-contato h2{font-size:16px;letter-spacing:-1px;}
-.header-contato p{line-height:22px;}
-.header-contato a{text-decoration:none;color:#EE8800;font-size:14px;}
-.header-contato a:hover{text-decoration:underline;}
+h2{font-size: 2.1em; font-weight: normal;}
 
-.frase{color:#666;font-size:16px;padding-top:10px;border-top:1px #CCC solid;clear:both;}
+h3{font-size: 1.7em;}
+h3 span{color:gray;}
+
+ul{margin-top:20px;}
+li{list-style: none; display:inline-block;margin:0 15px;}
+
+@media screen and (max-width: 1275px) {
+	h1{font-size: 3em;}
+	h2{font-size: 1.8em;}
+}
+
+@media screen and (max-width: 1024px) {
+	h1{font-size: 2.2em;}
+	h2{font-size: 1.3em;}
+	h3{font-size: 1.4em;}
+}
+
+@media screen and (max-width: 768px) {
+	h1{font-size: 1.8em;}
+	h2{font-size: 1.1em;}
+	h3{font-size: 1.1em;}
+}
+
+@media screen and (max-width: 700px) {
+	h1{font-size: 2.8em;}
+	h2{font-size: 1.8em;}
+	h3{font-size: 1.3em;}
+
+	.header,.body{
+		right:0;
+		left:0;
+	}
+
+	.inside{
+		top: calc(50% - 35px);
+	}
+
+	.header{
+		width: calc(100% - 30px);
+		height:50%;
+		top: 0;
+		text-align: center;
+	}
+	.body{
+		width:100%;
+		height:50%;
+		bottom: 0;
+		top: auto;
+	}
+}
+
+@media screen and (max-width: 425px){
+	h3 span {display: block;}
+}
+
+@media screen and (max-width: 375px){
+	h1{font-size: 2.2em;}
+	h2{font-size: 1.4em;}
+	h3{font-size: 1.1em;}
+}

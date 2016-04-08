@@ -1,6 +1,6 @@
 from dal import autocomplete
 from django import forms
-from models import Resume, Skill, Language
+from models import Resume, Skill, Language, Experience, Education
 
 
 class ResumeForm(forms.ModelForm):

@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Marcelo Gaia - Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static "/css/main.css" %}">
+	<style type="text/css"></style>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<div class="inside">
+				<h1>marcelo<strong>gaia</strong></h1>
+				<h2>Web Developer</h2>
+			</div>
+		</div>
+		<div class="body">
+			<div class="inside">
+				<h3>It's nice to meet you. <span>I'll be right back!</span> &#x1F609;</h3>
+				<ul>
+					<li>
+						<a href="https://github.com/marcelogaia" target="_blank"><img src="{% static "/images/github.png" %}" alt="GitHub"></a>
+					</li>
+					<li>
+						<a href="https://ca.linkedin.com/in/marcelogaia/en" target="_blank"><img src="{% static "/images/linkedin.png" %}" alt="LinkedIn"></a>
+					</li>
+					<li>
+						<a href="mailto:marcelo@marcelogaia.com.br" target="_blank"><img src="{% static "/images/mail.png" %}" alt="Email"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
